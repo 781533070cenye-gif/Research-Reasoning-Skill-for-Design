@@ -1,6 +1,6 @@
 ---
 name: bunny-research-reasoning
-description: Turn early research intuitions, empirical materials, and draft arguments into evidence-bounded design-research questions, study architectures, findings, contributions, and submission-ready decisions. Use for research brainstorming, novelty positioning, RQ and study design, operationalization, analysis interpretation, multi-study synthesis, claim–evidence checks, conceptual framing, or convergence before submission. Do not invoke for isolated copyediting when no research judgment is needed.
+description: Turn early research intuitions, empirical materials, and draft arguments into evidence-bounded design-research questions, study architectures, findings, contributions, and submission-ready decisions. Use for research brainstorming, literature and novelty positioning, RQ and study design, operationalization, analysis interpretation, multi-study synthesis, claim–evidence checks, conceptual framing, or convergence before submission. Do not invoke for isolated copyediting when no research judgment is needed.
 ---
 
 # Bunny Research Reasoning
@@ -55,6 +55,8 @@ Unless the user asks for a complete draft or artifact:
 
 Never solve a reasoning problem with prose polishing. If a passage remains unclear, inspect the claim, evidence, level of abstraction, causal relation, and paragraph role before rewriting it.
 
+Avoid arbitrary precision in exploratory recommendations. Do not invent sample sizes, thresholds, coding requirements, or procedural rules unless they follow from the research goal, source structure, established practice, or an explicit user constraint.
+
 ## Route research branches
 
 When a new idea appears, assign it to one of four buckets:
@@ -66,20 +68,63 @@ When a new idea appears, assign it to one of four buckets:
 
 In `EXPLORE`, keep the buckets permeable. In `CONVERGE`, move an item into `Current paper` only when excluding it would make the main claim incomplete or misleading.
 
-## Handle literature as positioning
+## Handle literature as positioning and evidence
 
-When the user asks whether something has been studied, treat it as a novelty audit rather than a generic reading list. Classify useful sources by function:
+Treat literature search as part of the reasoning process when the user's claim depends on what prior work has established, omitted, challenged, measured, or explained.
 
-- phenomenon evidence;
-- conceptual resource;
-- prior explanation;
-- closest precedent;
-- novelty threat;
-- boundary literature.
+Use live academic literature search rather than model memory alone when the task involves:
 
-State whether novelty lies in the phenomenon, question, unit of analysis, relation, method, empirical setting, or conceptual reframing.
+- novelty or research-gap claims;
+- whether a phenomenon, concept, method, relationship, or empirical pattern has already been studied;
+- theoretical grounding for a construct, mechanism, or interpretation;
+- methodological precedents or operationalization choices;
+- recent developments, especially when the field may have changed;
+- citation support for a central claim;
+- identifying the closest prior work against which the contribution must be positioned;
+- verifying whether an apparent field assumption is actually established in prior literature.
 
-Never infer novelty solely from failing to find an exact keyword match. When live searching is required, prefer authoritative primary sources and preserve precise source attribution.
+For academic discovery, prefer peer-reviewed primary research and authoritative conference or journal sources.
+
+When an academic paper-search tool is available, use it for paper discovery, abstracts, metadata, and citation tracing. Use broader web search when needed for proceedings, institutional reports, historical sources, books, standards, policy documents, museum archives, design archives, exhibition records, or materials outside academic indexes.
+
+Do not treat literature retrieval as a generic reading-list task. Classify useful sources by function:
+
+- `Phenomenon evidence`: demonstrates that the observed phenomenon exists or has been documented.
+- `Conceptual resource`: provides a concept, theory, or analytical vocabulary that may help explain the phenomenon.
+- `Prior explanation`: offers an existing mechanism or interpretation that competes with the user's proposed account.
+- `Closest precedent`: most closely resembles the user's research question, unit of analysis, method, or empirical setting.
+- `Novelty threat`: substantially overlaps with the proposed contribution and may require narrowing or reframing.
+- `Boundary literature`: shows where the proposed claim does not apply or where alternative explanations remain plausible.
+- `Method precedent`: demonstrates how a similar construct or phenomenon has previously been operationalized, observed, coded, compared, or analyzed.
+
+### Conduct a novelty audit
+
+When novelty is central:
+
+1. Search for the phenomenon using multiple formulations, not only the user's preferred terminology.
+2. Search separately for the proposed mechanism, construct, unit of analysis, empirical setting, and method when relevant.
+3. Include both recent work and relevant foundational work.
+4. Identify the closest precedent before claiming a gap.
+5. Distinguish "I did not find an exact match" from "this has not been studied."
+6. State whether novelty appears to lie in the phenomenon, question, relation, unit of analysis, method, empirical setting, or conceptual reframing.
+7. Flag any source that materially threatens the proposed novelty.
+8. Do not convert a difference in terminology into a novelty claim without checking conceptual overlap.
+
+### Use literature without allowing it to outrun the evidence
+
+When bringing literature into the reasoning:
+
+- Separate source-supported claims from inference, working interpretation, and authorial proposal.
+- Preserve precise attribution to the source actually supporting the claim.
+- Do not cite a source for a stronger claim than the source makes.
+- Prefer original studies over secondary summaries when the original is available.
+- Do not invent bibliographic details, page numbers, findings, sample characteristics, or citation metadata.
+- Do not present a plausible field assumption as established unless the literature supports it.
+- Treat an attractive concept from prior work as a candidate analytical resource, not as the required theoretical frame.
+- Compare competing conceptual resources when more than one can plausibly explain the phenomenon.
+- If a key source cannot be verified, say so rather than filling the gap from memory.
+
+When literature materially changes the research direction, update the current reasoning state and explain what changed.
 
 ## Produce decision-supporting outputs
 
@@ -97,13 +142,17 @@ Unless another format better serves the task, structure the response around:
 
 **Judgment** — the most important research decision or diagnosis.
 
-**Reasoning** — why that judgment follows from the current evidence, assumptions, or project state.
+**Reasoning** — why that judgment follows from the current evidence, assumptions, literature, or project state.
 
-**Boundary** — what the available evidence does not yet justify.
+**Boundary** — what the available evidence and literature do not yet justify.
 
 **Next move** — the smallest useful action that advances the research without unnecessarily reopening settled work.
 
 In `EXPLORE`, the next move may remain open-ended.
+
+In `CRYSTALLIZE`, prefer a bounded set of competing formulations rather than a single premature answer.
+
+In `EVIDENCE`, prefer claims whose wording mirrors the actual source, measurement, unit of analysis, and design.
 
 In `CONVERGE`, prefer a concrete decision, freeze, or acceptance test.
 
@@ -117,7 +166,9 @@ Pause and surface the problem when:
 - multiple plausible interpretations would materially change the study;
 - a requested rewrite hides an unresolved contradiction;
 - convergence requires discarding a user-valued branch without their decision;
-- a submission-critical fact cannot be verified.
+- a submission-critical fact cannot be verified;
+- a novelty, precedence, field-assumption, or theory claim depends on literature that has not yet been searched or verified;
+- a proposed concept is being promoted from working lens to central contribution without sufficient empirical or literature support.
 
 When blocked, provide the smallest decision the user must make and, when useful, a recommended option with its tradeoff.
 
@@ -125,4 +176,11 @@ When blocked, provide the smallest decision the user must make and, when useful,
 
 For changes to this skill, use [evaluation-scenarios.md](references/evaluation-scenarios.md) as forward tests.
 
-Judge behavior by whether it preserves mode, evidence boundaries, project scope, and user agency—not by exact wording.
+Judge behavior by whether it preserves mode, evidence boundaries, project scope, literature discipline, and user agency—not by exact wording.
+
+When evaluating future versions, test both:
+
+- behavioral reliability across `EXPLORE`, `CRYSTALLIZE`, `EVIDENCE`, and `CONVERGE`;
+- transfer across different design-research paradigms, including HCI, design history, material culture, visual culture, design anthropology, accessibility, classification, and mixed-method research.
+
+Do not treat success on one project as proof of generality.
