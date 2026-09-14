@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bunny Research Reasoning"
+  short_description: "Turn research intuitions into evidence-bounded arguments"
+  default_prompt: "Use $bunny-research-reasoning to help me turn this research intuition into a defensible study."
