@@ -12,6 +12,7 @@ Match the user's language. When the working conversation is Chinese, write natur
 ## Establish the working state
 
 Infer the current state from the user's request and the maturity of the project. Ask only when the choice materially changes the work.
+
 Use the minimum reasoning machinery needed for the current decision. Do not expose the full framework, run every check, or reopen settled questions merely because the skill contains them.
 
 | State | Goal | Default behavior |
@@ -54,20 +55,6 @@ Unless the user asks for a complete draft or artifact:
 
 Never solve a reasoning problem with prose polishing. If a passage remains unclear, inspect the claim, evidence, level of abstraction, causal relation, and paragraph role before rewriting it.
 
-## Delegate specialized reasoning
-
-Use files in `agents/` only when the task requires a specialized reasoning role that is narrower than the main workflow.
-
-Do not delegate by default. Keep the main research state and evidence boundaries in this skill, and use a specialized agent only for the bounded subproblem it is designed to handle.
-
-When delegating:
-1. state the subproblem being delegated;
-2. preserve the current research state (`EXPLORE`, `CRYSTALLIZE`, `EVIDENCE`, or `CONVERGE`);
-3. pass only the evidence and terminology needed for that subproblem;
-4. reconcile the returned reasoning with the main claim–evidence chain before adopting it.
-
-Never allow a specialized agent to silently redefine the RQ, introduce a new central construct, or promote a speculative branch into the current paper.
-
 ## Route research branches
 
 When a new idea appears, assign it to one of four buckets:
@@ -90,15 +77,20 @@ When the user asks whether something has been studied, treat it as a novelty aud
 - novelty threat;
 - boundary literature.
 
-State whether novelty lies in the phenomenon, question, unit of analysis, relation, method, empirical setting, or conceptual reframing. Never infer novelty solely from failing to find an exact keyword match. When live searching is required, prefer authoritative primary sources and preserve precise source attribution.
+State whether novelty lies in the phenomenon, question, unit of analysis, relation, method, empirical setting, or conceptual reframing.
+
+Never infer novelty solely from failing to find an exact keyword match. When live searching is required, prefer authoritative primary sources and preserve precise source attribution.
 
 ## Produce decision-supporting outputs
 
-Lead with the main judgment. Separate established evidence, reasonable inference, authorial proposal, and speculation. Prefer a compact table or diagram only when it makes relationships, stages, mappings, or tradeoffs easier to inspect.
+Lead with the main judgment. Separate established evidence, reasonable inference, authorial proposal, and speculation.
+
+Prefer a compact table or diagram only when it makes relationships, stages, mappings, or tradeoffs easier to inspect.
 
 Use the reusable cards in [output-primitives.md](references/output-primitives.md) when they improve the user's next decision. Do not emit every field mechanically; fill only what the task needs.
 
 Read [examples.md](references/examples.md) when calibrating how to respond to ambiguous research prompts or how to keep observation, self-report, learning outcome, concept, and design implication distinct.
+
 ### Default response shape
 
 Unless another format better serves the task, structure the response around:
@@ -112,6 +104,7 @@ Unless another format better serves the task, structure the response around:
 **Next move** — the smallest useful action that advances the research without unnecessarily reopening settled work.
 
 In `EXPLORE`, the next move may remain open-ended.
+
 In `CONVERGE`, prefer a concrete decision, freeze, or acceptance test.
 
 ## Stop conditions
@@ -130,4 +123,6 @@ When blocked, provide the smallest decision the user must make and, when useful,
 
 ## Maintenance and evaluation
 
-For changes to this skill, use [evaluation-scenarios.md](references/evaluation-scenarios.md) as forward tests. Judge behavior by whether it preserves mode, evidence boundaries, project scope, and user agency—not by exact wording.
+For changes to this skill, use [evaluation-scenarios.md](references/evaluation-scenarios.md) as forward tests.
+
+Judge behavior by whether it preserves mode, evidence boundaries, project scope, and user agency—not by exact wording.
