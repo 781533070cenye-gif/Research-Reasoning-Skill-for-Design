@@ -24,3 +24,8 @@ Research-Reasoning-Skill-for-Design/
 ├── SKILL.md
 ├── agents/
 └── references/
+## Release
+
+Current stable version: **v0.1.0**
+
+See the GitHub Releases page for version history and release notes.
